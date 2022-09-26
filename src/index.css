@@ -54,3 +54,27 @@ code {
 .stats div {
   font-size: 20px;
 }
+
+.btn {
+  border: 2px solid darkgrey;
+  height: 30px;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+}
+
+.btn-0 {
+  border: 1px solid darkgrey;
+  height: 25px;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+}
+
+.btn-1 {
+  border: 1px solid darkgrey;
+  height: 25px;
+  border-radius: 5px;
+  background-color: rgb(0, 255, 166);
+  color: black;
+}

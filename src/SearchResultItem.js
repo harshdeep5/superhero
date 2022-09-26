@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
+import { connect } from "react-redux";
+import { addSuperhero, removeSuperhero } from "./actions/index";
 
 function SearchResultItem(props) {
   const { data } = props;
+  const [added, setAdded] = useState(false);
+  const addSuperhero = superhero => {
+    props.addSuperhero(superhero);
+    setAdded(true);
+  };
 
-  console.log("data", data);
+  const removeSuperhero = superhero => {
+    props.removeSuperhero(superhero);
+    setAdded(false);
+  };
+
   return (
     <div>
       <div className="search-result">
@@ -20,10 +31,25 @@ function SearchResultItem(props) {
             <div>speed: {data.powerstats.speed}</div>
             <div>power: {data.powerstats.power}</div>
           </div>
+          {added ? (
+              <button
+                onClick={() => removeSuperhero(data)}
+                className="cardButton btn-0"
+              >
+                Remove
+              </button>
+            ) : (
+              <button
+                onClick={() => addSuperhero(data)}
+                className="cardButton btn-1"
+              >
+                Compare
+              </button>
+            )}
         </div>
       </div>
     </div>
   );
 }
 
-export default SearchResultItem;
+export default connect(null, { addSuperhero, removeSuperhero })(SearchResultItem);

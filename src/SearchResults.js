@@ -5,8 +5,8 @@ function SearchResults(props) {
   const { superheroData = [] } = props;
   return (
     <div>
-      {superheroData.map((superhero) => (
-        <SearchResultItem data={superhero} />
+      {superheroData.map((superhero, i) => (
+        <SearchResultItem key={i} data={superhero} />
       ))}
     </div>
   );
